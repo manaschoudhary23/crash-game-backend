@@ -20,7 +20,7 @@ app.use("/api", require("./routes/api"));
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ["https://crash-game-backend-txei.vercel.app/"], 
+    origin: ["https://crash-game-backend-txei.vercel.app"], 
     methods: ["GET", "POST"]
   }
 });

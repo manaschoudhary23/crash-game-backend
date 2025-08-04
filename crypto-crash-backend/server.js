@@ -18,7 +18,12 @@ app.use(express.json());
 app.use("/api", require("./routes/api"));
 
 const server = http.createServer(app);
-const io = new Server(server, { cors: { origin: "*" } });
+const io = new Server(server, {
+  cors: {
+    origin: ["https://crash-game-backend-six.vercel.app/"], 
+    methods: ["GET", "POST"]
+  }
+});
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("✅ Connected to MongoDB"))

@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const http = require("http");
-const { Server } = require("socket.io"); // ✅ Missing earlier
+const { Server } = require("socket.io"); 
 const cors = require("cors");
 const crypto = require("crypto");
 
@@ -20,7 +20,7 @@ app.use("/api", require("./routes/api"));
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ["https://crash-game-backend-manaschoudhary23s-projects.vercel.app/"], 
+    origin: ["https://crash-game-backend-txei.vercel.app/"], 
     methods: ["GET", "POST"]
   }
 });
@@ -112,7 +112,7 @@ io.on("connection", (socket) => {
       console.log(`💰 Player ${playerId} bet $${usdAmount} in ${currency}`);
     } catch (err) {
       await session.abortTransaction();
-      socket.emit("error_message", err.message); // ✅ Error to frontend
+      socket.emit("error_message", err.message); 
       console.error("❌ Bet transaction failed:", err.message);
     } finally {
       session.endSession();
@@ -166,7 +166,7 @@ io.on("connection", (socket) => {
       console.log(`💸 Player ${playerId} cashed out at ${multiplier.toFixed(2)}x`);
     } catch (err) {
       await session.abortTransaction();
-      socket.emit("error_message", err.message); // ✅ Error to frontend
+      socket.emit("error_message", err.message); 
       console.error("❌ Cashout transaction failed:", err.message);
     } finally {
       session.endSession();

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
 
-const socket = io("http://localhost:5000"); 
+const socket = io("https://crash-game-backend-pdre.onrender.com"); 
 
 const playerId = "64ef7d278a3b627a4e64c71c";
 
